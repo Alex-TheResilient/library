@@ -8,12 +8,10 @@ body {
   font-family: Arial, sans-serif;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.container {
+main {
+  margin: 0 auto;
   padding: 50px;
   width: 80%;
   height: 100vh;
@@ -42,7 +40,7 @@ h3 {
   font-size: 1.2em;
 }
 
-button {
+header button {
   background-color: #ff8800;
   font-weight: bold;
   color: #1c1e1f;
@@ -53,8 +51,117 @@ button {
   border-radius: 10px;
 }
 
-button:hover {
+header button:hover {
   background-color: #cc7700;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #222;
+  padding: 50px;
+  border-radius: 10px;
+  width: 400px;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.close-button {
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.close-button img {
+  width: 25px;
+  height: 25px;
+  filter: invert(0.7);
+}
+.close-button img:hover {
+  filter: invert(1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.form-group label {
+  min-width: 100px;
+  text-align: right;
+}
+
+.form-group input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #555;
+  color: white;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-bottom: 2px solid #ff8800;
+}
+
+.form-group select {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #555;
+  color: white;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-bottom: 2px solid #ff8800;
+}
+
+#book-form button {
+  background-color: #ff8800;
+  font-weight: bold;
+  color: #1c1e1f;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#book-form button:hover {
+  background-color: #cc7700;
+}
+
+.hidden {
+  display: none;
 }
 
 .book-list {
