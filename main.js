@@ -3,6 +3,20 @@ const form = document.querySelector('#book-form');
 
 const myLibrary = [];
 
+function defaultBooks() {
+  const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 310, 'read');
+  const book2 = new Book('1984', 'George Orwell', 328, 'not-read');
+  const book3 = new Book('To Kill a Mockingbird', 'Harper Lee', 281, 'reading');
+  addBookToLibrary(book1);
+  addBookToLibrary(book2);
+  addBookToLibrary(book3);
+  renderLibrary();
+}
+
+window.onload = function () {
+  defaultBooks();
+};
+
 function Book(title, author, pages, read) {
   if (!new.target) {
     throw new Error('Book constructor must be called with "new"');
@@ -36,7 +50,48 @@ function renderLibrary() {
   myLibrary.forEach((book) => {
     const bookCard = document.createElement('div');
     bookCard.className = 'book-card';
-    bookCard.textContent = book.info();
+
+    const title = document.createElement('h4');
+    title.textContent = book.title;
+
+    const author = document.createElement('p');
+    author.innerHTML = `<strong>Author:</strong> ${book.author}`;
+
+    const pages = document.createElement('p');
+    pages.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
+
+    const readSelect = document.createElement('select');
+    ['not-read', 'reading', 'read'].forEach((opt) => {
+      const option = document.createElement('option');
+      option.value = opt;
+      option.textContent =
+        opt === 'not-read'
+          ? 'Not Read'
+          : opt.charAt(0).toUpperCase() + opt.slice(1);
+      if (book.read === opt) option.selected = true;
+      readSelect.appendChild(option);
+    });
+    readSelect.addEventListener('change', (e) => {
+      book.read = e.target.value;
+      renderLibrary();
+    });
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'delete-book';
+    deleteBtn.addEventListener('click', () => {
+      const idx = myLibrary.findIndex((b) => b.id === book.id);
+      if (idx !== -1) {
+        myLibrary.splice(idx, 1);
+        renderLibrary();
+      }
+    });
+
+    bookCard.appendChild(title);
+    bookCard.appendChild(author);
+    bookCard.appendChild(pages);
+    bookCard.appendChild(readSelect);
+    bookCard.appendChild(deleteBtn);
 
     if (book.read === 'not-read') {
       notReadDiv.appendChild(bookCard);
