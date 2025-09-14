@@ -83,7 +83,6 @@ header button:hover {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 1em;
   border: none;
   border-radius: 5px;
   padding: 5px;
@@ -200,6 +199,7 @@ form {
 }
 
 .book-card {
+  position: relative;
   background: #333;
   color: #fff;
   border-radius: 8px;
@@ -234,18 +234,23 @@ form {
   font-size: 0.95em;
 }
 
-.book-card .delete-book {
-  background: #ff4444;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 12px;
-  margin-top: 8px;
+.book-card button {
+  background-color: transparent;
+  position: absolute;
   cursor: pointer;
-  font-size: 0.95em;
-  transition: background 0.2s;
+  top: 5px;
+  right: 5px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-.book-card .delete-book:hover {
-  background: #cc2222;
+.book-card img {
+  width: 30px;
+  height: 30px;
+  filter: invert(0.7);
+}
+
+.book-card button:hover img {
+  filter: invert(1);
 }

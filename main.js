@@ -77,8 +77,11 @@ function renderLibrary() {
     });
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Delete';
-    deleteBtn.className = 'delete-book';
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = 'icons/delete-icon.svg';
+    deleteIcon.alt = 'Delete book';
+    deleteBtn.prepend(deleteIcon);
+
     deleteBtn.addEventListener('click', () => {
       const idx = myLibrary.findIndex((b) => b.id === book.id);
       if (idx !== -1) {
