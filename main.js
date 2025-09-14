@@ -24,9 +24,34 @@ function Book(title, author, pages, read) {
   };
 }
 
+function renderLibrary() {
+  const notReadDiv = document.querySelector('#not-read-column .books');
+  const readingDiv = document.querySelector('#reading-column .books');
+  const readDiv = document.querySelector('#read-column .books');
+
+  notReadDiv.innerHTML = '';
+  readingDiv.innerHTML = '';
+  readDiv.innerHTML = '';
+
+  myLibrary.forEach((book) => {
+    const bookCard = document.createElement('div');
+    bookCard.className = 'book-card';
+    bookCard.textContent = book.info();
+
+    if (book.read === 'not-read') {
+      notReadDiv.appendChild(bookCard);
+    } else if (book.read === 'reading') {
+      readingDiv.appendChild(bookCard);
+    } else if (book.read === 'read') {
+      readDiv.appendChild(bookCard);
+    }
+  });
+}
+
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  console.log(`Book added: ${book.info()}`);
+  renderLibrary();
+  // console.log(`Book added: ${book.info()}`);
 }
 
 document.querySelector('#add-book').addEventListener('click', () => {

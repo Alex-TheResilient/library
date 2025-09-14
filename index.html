@@ -13,7 +13,20 @@
         <h1>My Library</h1>
         <button id="add-book">Add Book</button>
       </header>
-      <section class="book-list"></section>
+      <section class="book-list">
+        <div class="column" id="not-read-column">
+          <h3>Not Read Yet</h3>
+          <div class="books"></div>
+        </div>
+        <div class="column" id="reading-column">
+          <h3>Reading</h3>
+          <div class="books"></div>
+        </div>
+        <div class="column" id="read-column">
+          <h3>Read</h3>
+          <div class="books"></div>
+        </div>
+      </section>
     </main>
     <!-- Modal -->
     <div id="modal" class="modal hidden">

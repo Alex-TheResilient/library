@@ -166,12 +166,46 @@ form {
 
 .book-list {
   flex: 1;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  border: 1px solid #777;
-  background-color: gray;
-  margin-top: 0;
-  padding: 20px 0 0 0;
+  padding: 20px;
+  background-color: black;
+  border-radius: 15px;
   overflow: auto;
+}
+
+.column {
+  background: #222;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.column h3 {
+  text-align: center;
+  color: #e1e1e1;
+  padding: 10px 10px;
+  border-bottom: 2px solid #ff8800;
+}
+
+.books {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.book-card {
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-size: 1em;
+  word-break: break-word;
 }
