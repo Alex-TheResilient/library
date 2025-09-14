@@ -16,7 +16,6 @@ main {
   width: 80%;
   height: 100vh;
   color: #ffffff;
-  border: 1px solid #777;
   display: flex;
   flex-direction: column;
   justify-content: center;
