@@ -17,17 +17,16 @@ window.onload = function () {
   defaultBooks();
 };
 
-function Book(title, author, pages, read) {
-  if (!new.target) {
-    throw new Error('Book constructor must be called with "new"');
+class Book {
+  constructor(title, author, pages, read) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
 
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
+  info() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${
       this.read === 'read'
         ? 'read'
@@ -35,7 +34,7 @@ function Book(title, author, pages, read) {
         ? 'reading'
         : 'not read yet'
     }`;
-  };
+  }
 }
 
 function renderLibrary() {
