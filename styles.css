@@ -253,3 +253,16 @@ form {
 .book-card button:hover img {
   filter: invert(1);
 }
+
+input:invalid {
+  border-color: #ff4444;
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+input:valid {
+  border-color: #44ff44;
+}
+
+input:invalid:focus {
+  outline: 2px solid #ff4444;
+}
